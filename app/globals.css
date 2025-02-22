@@ -2,26 +2,123 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.Red-cotainer {
+  background: #ffebee;
+  padding: 15px;
+  border-left: 5px solid #e53935;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.Red-cotainer span {
+  font-weight: bold;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
+ul li, ol li {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+td:first-child {
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
   }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  p, ul li, ol li {
+    font-size: 14px;
+  }
+
+  td {
+    font-size: 14px;
+  }
+}
+
+
+ul {
+  list-style-type: disc; 
+  padding-left: 20px;
+}
+
+ol {
+  counter-reset: instruction-counter; 
+  list-style: none; 
+  padding-left: 0;
+}
+
+ol li {
+  counter-increment: instruction-counter; 
+  position: relative;
+  padding-left: 30px; 
+}
+
+ol li::before {
+  content: counter(instruction-counter) ".";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
 }
